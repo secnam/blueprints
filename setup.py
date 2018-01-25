@@ -232,8 +232,8 @@ if sys.version_info < (2, 7) or (3, 0) <= sys.version_info < (3, 3):
 # install-requires.txt as install_requires
 # minimal dependencies to run.
 install_requires = []
-if os.path.exists(os.path.join(os.path.dirname(__file__), 'install-requires.txt')):
-    with open(os.path.join(os.path.dirname(__file__), 'install-requires.txt')) as req:
+if os.path.exists(os.path.join(os.path.dirname(__file__), 'requirements.txt')):
+    with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as req:
         install_requires = req.read().splitlines()
 
 # dependency-links.txt as dependency_links
@@ -269,11 +269,6 @@ setup_dict = dict(
     ],
     cmdclass={'test': TestAllCommand},
     zip_safe=False,  # don't use eggs
-    entry_points={
-        'console_scripts': [
-            'luxon = luxon.main:entry_point'
-        ],
-    }
 )
 
 def main():
